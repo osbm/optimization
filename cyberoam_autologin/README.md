@@ -1,6 +1,6 @@
 # Cyberoam auto login script
 
-This only works on linux, but i believe one can make this script work on Windows on minimum effort. 
+This only works on linux, but i believe one can make this script work on Windows with minimum effort. 
 
 It looks like this on Ubuntu: 
 
