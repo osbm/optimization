@@ -9,8 +9,8 @@ import os
 import time
 
 
-username = "bayram"
-password = "1234"
+username = "USERNAME"
+password = "PASSWORD"
 gateway = "192.168.2.1"
 port = "8090"
 url = "http://{}:{}/httpclient.html".format(gateway, port)
