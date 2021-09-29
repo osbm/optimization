@@ -1,6 +1,7 @@
 from PIL import Image, ImageDraw
 from pystray import MenuItem as item
-import pystray
+import pystray 
+# pip install pystray 
 import requests
 import threading
 import sys
@@ -8,11 +9,10 @@ import os
 import time
 
 
-# edit these values please
-username = "USERNAME"
-password = "PASSWORD"
-gateway = "GATEWAY"
-port = "PORT"
+username = "bayram"
+password = "1234"
+gateway = "192.168.2.1"
+port = "8090"
 url = "http://{}:{}/httpclient.html".format(gateway, port)
 
 session = requests.Session()
@@ -38,12 +38,19 @@ def create_image() -> Image:
 
 
 def notify(title: str, msg: str):
-    # make a system notification, it'll only work on linux.
-    os.system(f"notify-send '{title}' '{msg}'")
+    if sys.platform == "linux":
+        os.system(f"notify-send '{title}' '{msg}'")
+
+    elif sys.platform == "win32":
+        # pip install win10toast
+        from win10toast import ToastNotifier
+        toaster = ToastNotifier()
+        toaster.show_toast(title, msg)
 
 
 def login():
     global logged_in
+     
     
     try:
         data_login = {'mode': 191, 'username': username, 'password': password, 'btnSubmit': 'Login'}
@@ -86,7 +93,6 @@ def quit():
 
 
 def system_tray():
-    # build the system tray functions
     menu = (
         item("Log in", login),
         item("Log out", logout),
