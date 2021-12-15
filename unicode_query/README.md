@@ -10,7 +10,7 @@ PROPORTIONAL TO
 
 ---
 
-Installition:
+Installiation:
 
 Copy the unicode file to /home/USERNAME/.local/bin. And make the file executable.
 
